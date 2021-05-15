@@ -18,14 +18,17 @@ class App extends Component {
       console.log("Sempre Retorna")
     })
   };
-  handleRemoverLinha = () => console.log("Botão clicado")
+  handleRemoverLinha = (id) => {
+    const livros = this.state.livros.filter(l => l.id !== id)
+    this.setState({livros})
+  }
   render(){
   return (
     <table className="tabela">
       <TabelaHead />
       <TabelaBody 
       livros={ this.state.livros }
-      removerLinha={this.handleRemoverLinha}
+      removerLinha= {this.handleRemoverLinha}
       />
       <TabelaFoot qdeLivros={ this.state.livros.length }/>
     </table>  
